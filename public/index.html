@@ -2,6 +2,7 @@
 <html lang="en">
 	<head>
 		<link rel="stylesheet" type="text/css" href="/css/index.css">
+		<link rel="stylesheet" type="text/css" href="/css/header.css">
 		<title>Divine Dungeon - a fan-made Game</title>
 		<meta charset="utf-8">
 		<!-- Libraries -->
@@ -48,168 +49,186 @@
 	</head>
 
 	<body>
-		<h1>Divine Dungeon - a fan-made Game</h1>
+
+		<link rel="stylesheet" type="text/css" href="/css/content.css">
 
 		<script>
 			var myGame;
 			document.addEventListener("DOMContentLoaded", function(){ myGame = new Game(socket, IDs.container.game);});
 			document.addEventListener("DOMContentLoaded", function(){ myPage.init(); });
 		</script>
-	</body>
 
-	<!-- LOG IN -->
-	<div class="contentContainer" id="loginContainer">
-		<div class="contentGroup">
-			<label for="nickname" class="contentItem">Nickname</label>
-			<input
-				type="text"
-				id="nickname"
-				placeholder="Nickname"
-				class="contentItem"></input>
-		</div>
-		
-		<div class="contentGroup">
-			<label for="password" class="contentItem">Password (not '1234')</label>
-			<input
-				type="password"
-				id="password"
-				placeholder="Password"
-				class="contentItem"></input>
-		</div>
+		<div class="page-container">
 
-		<div class="contentGroup">
-			<input
-				type="button"
-				id="login"
-				onclick="myPage.login()"
-				style="height: 4vh; width:50vh;"
-				value="Log In"></input>
-		</div>
-	</div>
+			<div class="header">
+				<div class="header-title">Divine Dungeon - a fan-made Game</div>
 
-	<!-- LOG OUT -->
-	<div class="contentContainer" id="logoutContainer" style="display:none">
-		<div class="contentGroup">
-			<input
-				type="button" 
-				id="logout"
-				onclick="myPage.logout()"
-				style="height: 4vh; width:50vw;"
-				value="Log Out"></input>
-		</div>
-	</div>
-
-	<!-- MESSAGE BOARD -->
-	<div class="chatBox" id="messagesContainer" style="border:1px solid black">
-		<ul id="messages"></ul>
-	</div>
-
-	<div id="gameEngineContainer" style="display:none">
-		<div class="contentContainer horizontal">
-			<div class="contentGroup" id="gameContainer" style="float:left">
-
-			</div>
-
-			<div id="entityInspectorContainer" style="width: 25%; float:right">
-				<h2>Entity Inspector</h2>
-				<div id="entityInspector"></div>
-			</div>
-
-			<div id="componentInspectorContainer" style="width: 25%; float:right">
-				<h2>Component Inspector</h2>
-				<div id="componentInspector">
-					<div id="entity1234">
-						<h3>Transform</h3>
-						<h4>Position</h4>
-						<div style="display:flex">
-							<label>x</label><input maxlength="8" size="6"></input>
-							<label>y</label><input maxlength="8" size="6"></input>
-							<label>z</label><input maxlength="8" size="6"></input>
-						</div>
-						<h4>Rotation</h4>
-						<div style="display:flex">
-							<label>x</label><input maxlength="8"></input><br>
-							<label>y</label><input maxlength="8"></input><br>
-							<label>z</label><input maxlength="8"></input>
-						</div>
-						<h4>Scale</h4>
-						<div style="display:flex">
-							<label>x</label><input maxlength="8"></input><br>
-							<label>y</label><input maxlength="8"></input><br>
-							<label>z</label><input maxlength="8"></input>
-						</div>
-					</div>
+				<!-- LOG OUT  -->
+				<div class="header-float-right" id="logoutContainer">
+					<input
+						type="button" 
+						id="logout"
+						onclick="myPage.logout()"
+						style="height: 4vh; width:15vw;"
+						value="Log Out"></input>
 				</div>
+
 			</div>
-		</div>
+	
+	
+
+	<div class="content">
 		
+		<!-- MESSAGE BOARD -->
+		<div class="chatBox" id="messagesContainer" style="border:1px solid black">
+			<ul id="messages"></ul>
+		</div>
 
-		<div id="createEntityContainer" class="contentContainer">
-			<input
-				type="button" 
-				id="createEntity"
-				onclick="myPage.createEntity()"
-				style="width: 90%; height: 100px; display: block;"
-				value="Create Entity"></input>
-
-			<div style="display:block">
+		<!-- LOG IN -->
+		<div class="login" id="loginContainer">
+			<div class="contentGroup">
+				<label for="nickname" class="contentItem">Nickname</label>
 				<input
-				type="text"
-				id="entityIdInput"
-				style="width: 50px; height: 20px;"></input>
-				<label for="entityIdInput">Entity-ID</label>
+					type="text"
+					id="nickname"
+					placeholder="Nickname"
+					class="contentItem"></input>
+			</div>
+			
+			<div class="contentGroup">
+				<label for="password" class="contentItem">Password</label>
+				<input
+					type="password"
+					id="password"
+					placeholder="Password"
+					class="contentItem"></input>
 			</div>
 
-			<div id="componentsContainer" class="table" style="display:inline-block;">
-				<div class="row">
-					<div class="cell">
-						<p>Use</p>
-					</div>
-					<div class="cell">
-						<b>Component</b>
-					</div>
+			<div class="contentGroup">
+				<input
+					type="button"
+					id="login"
+					onclick="myPage.login()"
+					style="height: 4vh; width:50vh;"
+					value="Log In"></input>
+			</div>
+		</div>
+		
+		<!-- MAIN GAME -->
+		<div id="gameEngineContainer" style="display:none">
+			<div class="contentContainer horizontal">
+				<div class="contentGroup" id="gameContainer" style="float:left">
+
 				</div>
 
-				<div class="row">
-					<div class="cell">
-						<input type="checkbox" name="components" id="transformCheckbox" value="transform" class="cell"></input>
-					</div>
-					<div class="cell">
-						<label for="transformCheckbox">Transform</label>
+				<!-- ENTITY INSPECTOR -->
+				<div id="entityInspectorContainer" style="width: 25%; float:left">
+					<h2>Entity Inspector</h2>
+					<div id="entityInspector"></div>
+				</div>
+
+				<!-- COMPONENT INSPECTOR -->
+				<div id="componentInspectorContainer" style="width: 25%; float:right">
+					<h2>Component Inspector</h2>
+					<div id="componentInspector">
+						<div id="entity1234">
+							<h3>Transform</h3>
+							<h4>Position</h4>
+							<div style="display:flex">
+								<label>x</label><input maxlength="8" size="6"></input>
+								<label>y</label><input maxlength="8" size="6"></input>
+								<label>z</label><input maxlength="8" size="6"></input>
+							</div>
+							<h4>Rotation</h4>
+							<div style="display:flex">
+								<label>x</label><input maxlength="8"></input><br>
+								<label>y</label><input maxlength="8"></input><br>
+								<label>z</label><input maxlength="8"></input>
+							</div>
+							<h4>Scale</h4>
+							<div style="display:flex">
+								<label>x</label><input maxlength="8"></input><br>
+								<label>y</label><input maxlength="8"></input><br>
+								<label>z</label><input maxlength="8"></input>
+							</div>
+						</div>
 					</div>
 				</div>
+			</div>
 			
-				<div class="row">
-					<div class="cell">
-						<input type="checkbox" name="components" id="audioEmitCheckbox" value="audioEmit"></input>
-					</div>
-					<div class="cell">
-						<label for="audioEmitCheckbox">Audio Emit</label>
-					</div>
-				</div>
-				
-				<div class="row">
-					<div class="cell">
-						<input type="checkbox" name="components" id="rendererCheckbox" value="renderer"></input>
-					</div>
-					<div class="cell">
-						<label for="rendererCheckbox">Renderer</label>
-					</div>
+			<!-- CREATE ENTITY -->
+			<div id="createEntityContainer" class="contentContainer">
+				<input
+					type="button" 
+					id="createEntity"
+					onclick="myPage.createEntity()"
+					style="width: 25%; height: 100px; display: block;"
+					value="Create Entity"></input>
+
+				<div style="display:block">
+					<input
+					type="text"
+					id="entityIdInput"
+					style="width: 50px; height: 20px;"></input>
+					<label for="entityIdInput">Entity-ID</label>
 				</div>
 
-				<div class="row">
-					<div class="cell">
-						<input type="checkbox" name="components" id="physicsCheckbox" value="physics"></input>
+				<div id="componentsContainer" class="table" style="display:inline-block;">
+					<div class="row">
+						<div class="cell">
+							<p>Use</p>
+						</div>
+						<div class="cell">
+							<b>Component</b>
+						</div>
 					</div>
-					<div class="cell">
-						<label for="physicsCheckbox">Physics</label>
+
+					<div class="row">
+						<div class="cell">
+							<input type="checkbox" name="components" id="transformCheckbox" value="transform" class="cell"></input>
+						</div>
+						<div class="cell">
+							<label for="transformCheckbox">Transform</label>
+						</div>
+					</div>
+				
+					<div class="row">
+						<div class="cell">
+							<input type="checkbox" name="components" id="audioEmitCheckbox" value="audioEmit"></input>
+						</div>
+						<div class="cell">
+							<label for="audioEmitCheckbox">Audio Emit</label>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="cell">
+							<input type="checkbox" name="components" id="rendererCheckbox" value="renderer"></input>
+						</div>
+						<div class="cell">
+							<label for="rendererCheckbox">Renderer</label>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="cell">
+							<input type="checkbox" name="components" id="physicsCheckbox" value="physics"></input>
+						</div>
+						<div class="cell">
+							<label for="physicsCheckbox">Physics</label>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+		<footer> 
+			<link rel="stylesheet" type="text/css" href="/css/footer.css"> 
 
-
-
-
+			<div class="footer-align-left">
+				Joa, det is die seite vom Tom
+			</div>
+		</footer>
+		</div>
+	</body>
 </html>

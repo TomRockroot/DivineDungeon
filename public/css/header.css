@@ -1,0 +1,27 @@
+
+.header
+{
+    background-color: rgb(141, 106, 106);
+    height: 75px;
+    border-bottom: 3px solid black;
+    
+}
+    .header-title
+    {
+        font-family: EnchantedLands;
+        color:  rgb(65, 18, 18);
+        display: inline-block;
+        vertical-align: middle;
+
+        font-size: 46px;
+        
+        padding-top: 10px;
+        padding-left: 20px;
+    }
+    .header-float-right
+    {
+        padding-top: 10px;
+        padding-left: 20px;
+        float: inline-end;
+        width: 25%;
+    }

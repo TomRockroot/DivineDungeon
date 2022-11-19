@@ -1,0 +1,40 @@
+.content
+{
+    min-height: 90vh;
+    position: relative;
+    background-color: rgb(165, 144, 144);
+    max-height: 25vh;
+}
+    .chatBox
+    {
+        height: 20vh;
+        width:25vw;
+        padding-top: 0px;
+        background-color: rgb(170, 155, 155);
+        overflow-y: scroll;
+        
+    }
+
+    .login
+    {
+        flex-wrap: wrap;
+        width:25%;
+
+        /*border:1px dotted black;*/
+    
+        align-content: center;
+        justify-content: center;
+        width: 350px;
+        height: 389px;
+        
+        position: absolute;
+        top: 25%;
+        left: 45%;
+
+        background-image: url("../assets/login-background.png");
+        display: flex;
+        
+        align-items: center;
+        text-align: center;
+        
+    }
