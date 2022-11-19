@@ -1,0 +1,9 @@
+{
+	"name": "divinedungeon",
+	"version": "0.0.1",
+	"description": "My divine dungeon game app",
+	"dependencies": {
+		"express": "^4.18.2",
+		"socket.io": "^4.5.3"
+	}
+}
